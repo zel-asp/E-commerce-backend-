@@ -1,4 +1,4 @@
-// Enhanced Search Functionality
+
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('product-search');
     const clearSearchBtn = document.getElementById('clear-search');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const description = card.getAttribute('data-description');
             const category = card.getAttribute('data-category');
 
-            // Search in name, description, and category
+          
             if (name.includes(query) ||
                 description.includes(query) ||
                 (category && category.includes(query))) {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Update results count
+   
         if (query.length > 0) {
             resultsCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'result' : 'results'} found`;
             resultsCount.classList.remove('hidden');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Event listeners
+
     searchInput.addEventListener('input', debounce(performSearch, 300));
 
     clearSearchBtn.addEventListener('click', function () {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         performSearch();
     });
 
-    // Initial search in case page loads with search term
+
     if (searchInput.value.trim() !== '') {
         performSearch();
     }
